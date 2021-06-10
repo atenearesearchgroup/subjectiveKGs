@@ -62,9 +62,20 @@ At least the following lines in the neo4j.conf file (in the case of linux from t
 
 ```
 ## Install sboolean.util plugin
+To install the plugin with the SBooleans handling procedures and functions in Neo4j we need to
 
-fsfsdfs
-fdsfsdfsdf
+1. Clone the subjectiveKGs project on the machine where it has been installed in neo4j.
+2. Build the project 
+
+```
+    cd $HOME_PROJECT
+    JAVA_HOME=/... # if is not defined variable $JAVA_HOME the path should be specified
+    mvn clean install  
+
+```
+3. Copy the file $HOME_PROJECT/target/neo4j_sBoolean-1.0-SNAPSHOT.jar to the $HOME_NEO4J/plugins directory specified in the neo4j.conf file.
+4. Restart the neo4j service
+
 ## Running the motivating example
 
 ## NELL Datasets
