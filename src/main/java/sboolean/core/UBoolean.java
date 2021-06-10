@@ -15,7 +15,7 @@ public class UBoolean implements Cloneable, Comparable<UBoolean> {
 	protected double c = 0.0;
 	
 	/** Important: booleans are always kept in their canonical form
-	 *  (b,c) with b=true and c=confidence that b=true
+	 *  (b,c) with b=true and c=confidence that b=true 
 	 */
 	private void setNormalForm() {
 		if (!b) { b = true; c=1-c; }

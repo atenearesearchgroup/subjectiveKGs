@@ -29,7 +29,7 @@ public class SBoolean implements Cloneable, Comparable<SBoolean> {
 
 	
     /**
-     * Constructors 
+     * Constructors  
      */
     public SBoolean() {
         this.b = 1.0D; this.d = 0.0D; this.u = 0.0D; this.a = 1.0D; // Dogmatic TRUE

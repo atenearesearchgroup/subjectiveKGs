@@ -360,7 +360,7 @@ public class MultipleOperation {
                     int index = list.indexOf(aOpinion);
                     aOpinion = acc.get(index).and(aOpinion);
                 }
-            acc = list;*/
+            acc = list; */
         }
         
         SBoolean sResult = SBoolean.averageBeliefFusion(acc);
