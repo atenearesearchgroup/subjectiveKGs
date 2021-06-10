@@ -63,6 +63,7 @@ dbms.logs.query.enabled=true
 
 Other vision 
     /etc/neo4j/neo4j.conf
+
         # Paths of directories in the installation.
         dbms.directories.data=/var/lib/neo4j/data
         dbms.directories.plugins=/usr/share/java/neo4j/plugins
