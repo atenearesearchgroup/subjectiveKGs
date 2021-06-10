@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">
+<key id="name" for="node" attr.name="name"/>
+<key id="labels" for="node" attr.name="labels"/>
+<key id="probability" for="edge" attr.name="probability"/>
+<key id="label" for="edge" attr.name="label"/>
+<key id="uncertainty" for="edge" attr.name="uncertainty"/>
+<key id="belief" for="edge" attr.name="belief"/>
+<key id="p_opinion" for="edge" attr.name="p_opinion"/>
+<key id="disbelief" for="edge" attr.name="disbelief"/>
+<graph id="G" edgedefault="directed">
+<node id="n9" labels=":L1:Law:Ruler"><data key="labels">:L1:Law:Ruler</data><data key="name">L1</data></node>
+<node id="n10" labels=":L2:Law:Ruler"><data key="labels">:L2:Law:Ruler</data><data key="name">L2</data></node>
+<node id="n11" labels=":L3:Law:Ruler"><data key="labels">:L3:Law:Ruler</data><data key="name">L3</data></node>
+<node id="n12" labels=":L4:Law:Ruler"><data key="labels">:L4:Law:Ruler</data><data key="name">L4</data></node>
+<node id="n13" labels=":C1:Case"><data key="labels">:C1:Case</data><data key="name">C1</data></node>
+<node id="n14" labels=":C2:Case"><data key="labels">:C2:Case</data><data key="name">C2</data></node>
+<node id="n15" labels=":C3:Case"><data key="labels">:C3:Case</data><data key="name">C3</data></node>
+<node id="n16" labels=":C4:Case"><data key="labels">:C4:Case</data><data key="name">C4</data></node>
+<node id="n17" labels=":C5:Case"><data key="labels">:C5:Case</data><data key="name">C5</data></node>
+<edge id="e255" source="n9" target="n13" label="appliesTo"><data key="label">appliesTo</data><data key="uncertainty">[0.3]</data><data key="disbelief">[0.34]</data><data key="belief">[0.36]</data><data key="probability">0.8</data><data key="p_opinion">["Lucy"]</data></edge>
+<edge id="e256" source="n10" target="n14" label="appliesTo"><data key="label">appliesTo</data><data key="uncertainty">[0.5,0.1]</data><data key="disbelief">[0.44999999999999996,0.18999999999999992]</data><data key="belief">[0.04999999999999999,0.7100000000000001]</data><data key="probability">0.9</data><data key="p_opinion">["Mary","John"]</data></edge>
+<edge id="e257" source="n11" target="n15" label="appliesTo"><data key="label">appliesTo</data><data key="uncertainty">[0.5,0.2,0.1]</data><data key="disbelief">[0.25,0.03999999999999998,0.1699999999999999]</data><data key="belief">[0.25,0.76,0.7300000000000001]</data><data key="probability">0.7</data><data key="p_opinion">["Mary","Lucy","John"]</data></edge>
+<edge id="e258" source="n12" target="n16" label="appliesTo"><data key="label">appliesTo</data><data key="uncertainty">[0.5,0.1]</data><data key="disbelief">[0.1499999999999999,0.29000000000000004]</data><data key="belief">[0.35000000000000003,0.61]</data><data key="probability">0.9</data><data key="p_opinion">["Mary","John"]</data></edge>
+<edge id="e259" source="n12" target="n15" label="appliesTo"><data key="label">appliesTo</data><data key="uncertainty">[0.2,0.6,0.3]</data><data key="disbelief">[0.22,0.36,0.0]</data><data key="belief">[0.58,0.04,0.7]</data><data key="probability">0.6</data><data key="p_opinion">["Lucy","John","Mary"]</data></edge>
+<edge id="e260" source="n14" target="n15" label="similarTo"><data key="label">similarTo</data><data key="uncertainty">[0.3,0.1]</data><data key="disbelief">[0.2700000000000001,0.08999999999999994]</data><data key="belief">[0.42999999999999994,0.81]</data><data key="probability">0.9</data><data key="p_opinion">["Lucy","John"]</data></edge>
+<edge id="e261" source="n16" target="n17" label="similarTo"><data key="label">similarTo</data><data key="uncertainty">[0.5,0.5,0.1]</data><data key="disbelief">[0.55,0.44999999999999996,0.08999999999999994]</data><data key="belief">[-0.04999999999999999,0.04999999999999999,0.81]</data><data key="probability">0.9</data><data key="p_opinion">["Mary","Lucy","John"]</data></edge>
+</graph>
+</graphml>
