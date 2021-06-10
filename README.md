@@ -81,30 +81,33 @@ To install the plugin with the SBooleans handling procedures and functions in Ne
 ## Loading SKG of motivating example
 * First open a browser and connect to the neo4j client  (with this configuration, no credentials are required)
 
-''' 
+``` 
     http://neo4j_server_ip:7474/browser/
     
-'''
+```  
+
 * Copy the loading file [example1.graphml](https://github.com/atenearesearchgroup/subjectiveKGs/examples/example1.graphml) of nodes and relations from the motivator example into $HOME_NEO4J/import
 * Run next statement of the copied graphml file in the neo4j client
 
-'''
+```
     CALL apoc.import.graphml("example1.graphml", {readLabels: true})
 
-'''
+```
+
 * Finally copy the loading file of nodes and relations from the motivator example into $HOME_NEO4J/import
 
 ## Loading SKG of NELL bastketbal players example
 * First open a browser and connect to the neo4j client  (with this configuration, no credentials are required)
 
-''' 
+``` 
     http://neo4j_server_ip:7474/browser/
     
-'''
+```
+
 * Copy the loading file [example2.graphml](https://github.com/atenearesearchgroup/subjectiveKGs/examples/example2.graphml) of nodes and relations from the NELL basketbal players example into $HOME_NEO4J/import
 * Run next statement of the copied graphml file in the neo4j client
 
-'''
+```
     CALL apoc.import.graphml("example2.graphml", {readLabels: true})
 
-'''
+```
