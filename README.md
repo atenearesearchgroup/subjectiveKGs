@@ -76,7 +76,7 @@ To install the plugin with the SBooleans handling procedures and functions in Ne
 3. Copy the file $HOME_PROJECT/target/neo4j_sBoolean-1.0-SNAPSHOT.jar to the $HOME_NEO4J/plugins directory specified in the neo4j.conf file.
 4. Restart the neo4j service
 
-## Loading SDK of motivating example
+## Loading SKG of motivating example
 * First open a browser and connect to the neo4j client  (with this configuration, no credentials are required)
 ''' 
     http://neo4j_server_ip:7474/browser/
@@ -90,4 +90,15 @@ To install the plugin with the SBooleans handling procedures and functions in Ne
 '''
 * Finally copy the loading file of nodes and relations from the motivator example into $HOME_NEO4J/import
 
-## NELL Datasets
+## Loading SKG of NELL bastketbal players example
+* First open a browser and connect to the neo4j client  (with this configuration, no credentials are required)
+''' 
+    http://neo4j_server_ip:7474/browser/
+    
+'''
+* Copy the loading file [example2.graphml](https://github.com/atenearesearchgroup/subjectiveKGs/examples/example2.graphml) of nodes and relations from the NELL basketbal players example into $HOME_NEO4J/import
+* Run next statement of the copied graphml file in the neo4j client
+'''
+    CALL apoc.import.graphml("example2.graphml", {readLabels: true})
+
+'''
