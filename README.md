@@ -61,7 +61,6 @@ At least the following lines in the neo4j.conf file (in the case of linux from t
     dbms.unmanaged_extension_classes=n10s.endpoint=/rdf
     dbms.security.procedures.unrestricted=apoc.*
     dbms.logs.query.enabled=true
-
 ```
 ## Install sboolean.util plugin
 To install the plugin with the SBooleans handling procedures and functions in Neo4j we need to
@@ -73,7 +72,6 @@ To install the plugin with the SBooleans handling procedures and functions in Ne
     cd $HOME_PROJECT
     JAVA_HOME=/... # if is not defined variable $JAVA_HOME the path should be specified
     mvn clean install  
-
 ```
 3. Copy the file $HOME_PROJECT/target/neo4j_sBoolean-1.0-SNAPSHOT.jar to the $HOME_NEO4J/plugins directory specified in the neo4j.conf file.
 4. Restart the neo4j service
@@ -81,9 +79,8 @@ To install the plugin with the SBooleans handling procedures and functions in Ne
 ## Loading SKG of motivating example
 * First open a browser and connect to the neo4j client  (with this configuration, no credentials are required)
 
-``` 
+```
     http://neo4j_server_ip:7474/browser/
-    
 ```  
 
 * Copy the loading file [example1.graphml](https://github.com/atenearesearchgroup/subjectiveKGs/examples/example1.graphml) of nodes and relations from the motivator example into $HOME_NEO4J/import
@@ -91,7 +88,6 @@ To install the plugin with the SBooleans handling procedures and functions in Ne
 
 ```
     CALL apoc.import.graphml("example1.graphml", {readLabels: true})
-
 ```
 
 * Finally copy the loading file of nodes and relations from the motivator example into $HOME_NEO4J/import
@@ -100,8 +96,7 @@ To install the plugin with the SBooleans handling procedures and functions in Ne
 * First open a browser and connect to the neo4j client  (with this configuration, no credentials are required)
 
 ``` 
-    http://neo4j_server_ip:7474/browser/
-    
+    http://neo4j_server_ip:7474/browser/ 
 ```
 
 * Copy the loading file [example2.graphml](https://github.com/atenearesearchgroup/subjectiveKGs/examples/example2.graphml) of nodes and relations from the NELL basketbal players example into $HOME_NEO4J/import
@@ -109,5 +104,4 @@ To install the plugin with the SBooleans handling procedures and functions in Ne
 
 ```
     CALL apoc.import.graphml("example2.graphml", {readLabels: true})
-
 ```
