@@ -1,8 +1,10 @@
 
 # subjectiveKGs
-This repository contains additional material for the paper entitled EDOC21-SubjectiveKnowledgeGraphs  introducesSubjective Knowledge Graphs(SKG), an extension to ProbabilisticKnowledge  Graphs  that  considers  the  individual  opinions  of separate users about the same facts, and allows reasoning about them.Tis paer is currently under revision.
+This repository contains additional material for the paper entitled EDOC21-
 
-The repository includes code and datasets for reproducibility purposes, as well as extended experimental results.
+Subjective Knowledge Graphs (SKG) introduces  an extension to Probabilistic Knowledge Graphs that considers the  individual  opinions  of separate users about the same facts, and allows reasoning about them. This paper is currently under revision.
+
+The repository includes code and datasets for reproducibility purposes.
 
 ## Requirements/dependencies
 
@@ -78,12 +80,14 @@ To install the plugin with the SBooleans handling procedures and functions in Ne
 
 ## Loading SKG of motivating example
 * First open a browser and connect to the neo4j client  (with this configuration, no credentials are required)
+
 ''' 
     http://neo4j_server_ip:7474/browser/
     
 '''
 * Copy the loading file [example1.graphml](https://github.com/atenearesearchgroup/subjectiveKGs/examples/example1.graphml) of nodes and relations from the motivator example into $HOME_NEO4J/import
 * Run next statement of the copied graphml file in the neo4j client
+
 '''
     CALL apoc.import.graphml("example1.graphml", {readLabels: true})
 
@@ -92,12 +96,14 @@ To install the plugin with the SBooleans handling procedures and functions in Ne
 
 ## Loading SKG of NELL bastketbal players example
 * First open a browser and connect to the neo4j client  (with this configuration, no credentials are required)
+
 ''' 
     http://neo4j_server_ip:7474/browser/
     
 '''
 * Copy the loading file [example2.graphml](https://github.com/atenearesearchgroup/subjectiveKGs/examples/example2.graphml) of nodes and relations from the NELL basketbal players example into $HOME_NEO4J/import
 * Run next statement of the copied graphml file in the neo4j client
+
 '''
     CALL apoc.import.graphml("example2.graphml", {readLabels: true})
 
