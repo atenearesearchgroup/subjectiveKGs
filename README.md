@@ -61,49 +61,10 @@ At least the following lines in the neo4j.conf file (in the case of linux from t
     dbms.logs.query.enabled=true
 
 ```
+## Install sboolean.util plugin
 
-Other vision 
-    /etc/neo4j/neo4j.conf
+fsfsdfs
+fdsfsdfsdf
+## Running the motivating example
 
-        # Paths of directories in the installation.
-        dbms.directories.data=/var/lib/neo4j/data
-        dbms.directories.plugins=/usr/share/java/neo4j/plugins
-        dbms.directories.certificates=/etc/neo4j/certificates
-        dbms.directories.logs=/var/log/neo4j
-        dbms.directories.lib=/usr/share/java/neo4j/lib
-        dbms.directories.run=/run/neo4j
-
-        #This setting constrains all `LOAD CSV` import files to be under the `import` directory. Remove or comment it out to
-        # allow files to be loaded from anywhere in the filesystem; this introduces possible security problems. See the
-        # `LOAD CSV` section of the manual for details.
-        dbms.directories.import=/var/lib/neo4j/import
-
-        # Whether requests to Neo4j are authenticated.
-        # To disable authentication, uncomment this line
-        dbms.security.auth_enabled=false
-
-        # Java Heap Size: by default the Java heap size is dynamically
-        # calculated based on available system resources.
-        # Uncomment these lines to set specific initial and maximum
-        # heap size.
-        dbms.memory.heap.initial_size=1G
-        dbms.memory.heap.max_size=2G
-
-        # The amount of memory to use for mapping the store files, in bytes (or
-        # kilobytes with the 'k' suffix, megabytes with 'm' and gigabytes with 'g').
-        # If Neo4j is running on a dedicated server, then it is generally recommended
-        # to leave about 2-4 gigabytes for the operating system, give the JVM enough
-        # heap to hold all your transaction state and query context, and then leave the
-        # rest for the page cache.
-        # The default page cache memory assumes the machine is dedicated to running
-        # Neo4j, and is heuristically set to 50% of RAM minus the max Java heap size.
-        dbms.memory.pagecache.size=3g
-
-        #********************************************************************
-        # Other Neo4j system properties
-        #********************************************************************
-        dbms.jvm.additional=-Dunsupported.dbms.udc.source=tarball
-        dbms.unmanaged_extension_classes=n10s.endpoint=/rdf
-        dbms.security.procedures.unrestricted=apoc.*
-        dbms.logs.query.enabled=true
-
+## NELL Datasets
