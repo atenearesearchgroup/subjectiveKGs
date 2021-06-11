@@ -1,8 +1,6 @@
 
 # subjectiveKGs
-This repository contains additional material for the paper entitled EDOC21-
-
-Subjective Knowledge Graphs (SKG) introduces  an extension to Probabilistic Knowledge Graphs that considers the  individual  opinions  of separate users about the same facts, and allows reasoning about them. This paper is currently under revision.
+This repository contains additional material for the paper entitled EDOC21-Subjective Knowledge Graphs (SKG) introduces  an extension to Probabilistic Knowledge Graphs that considers the  individual  opinions  of separate users about the same facts, and allows reasoning about them. This paper is currently under revision.
 
 The repository includes code and datasets for reproducibility purposes.
 
