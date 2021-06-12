@@ -1,6 +1,6 @@
 
 # subjectiveKGs
-This repository contains additional material for the paper entitled EDOC21-Subjective Knowledge Graphs (SKG) introduces  an extension to Probabilistic Knowledge Graphs that considers the  individual  opinions  of separate users about the same facts, and allows reasoning about them. This paper is currently under revision.
+This repository contains additional material for the paper entitled **Introducing Subjective Knowledge Graphs** introduces  an extension to Probabilistic Knowledge Graphs that considers the  individual  opinions  of separate users about the same facts, and allows reasoning about them. This paper is currently under revision.
 
 The repository includes code and datasets for reproducibility purposes.
 
@@ -13,7 +13,7 @@ The following dependecies are required:
 * [Neo4j community edition version 4.2.2](https://neo4j.com/download-center/#community), a  graph  database  management  system  with CRUD methods that expose a graph data model. This version uses a java implementation with Java 11.
 * [Apoc Core plugin](https://neo4j.com/labs/apoc/4.1/installation) The APOC library consists of many  procedures and functions to help with many different tasks in areas like data integration, graph algorithms or data conversion.
 
-In in order to facilitate the configuration of neo4j I show you the essential configuration elements of ne4j configuration to be able to test all the experiments. The 
+In in order to facilitate the configuration of Neo4j I show you the essential configuration elements of ne4j configuration to be able to test all the experiments. The 
 
 At least the following lines in the neo4j.conf file (in the case of linux from the Archlinux distribution /etc/neo4j/neo4j.conf) in the $NEO4J_HOME directory  must be enabled.
 
@@ -63,7 +63,7 @@ At least the following lines in the neo4j.conf file (in the case of linux from t
 ## Install sboolean.util plugin
 To install the plugin with the SBooleans handling procedures and functions in Neo4j we need to
 
-1. Clone the subjectiveKGs project on the machine where it has been installed in neo4j.
+1. Clone the subjectiveKGs project on the machine where it has been installed in Neo4j.
 2. Build the project 
 
 ```
@@ -75,14 +75,14 @@ To install the plugin with the SBooleans handling procedures and functions in Ne
 4. Restart the neo4j service
 
 ## Loading SKG of motivating example
-* First open a browser and connect to the neo4j client  (with this configuration, no credentials are required)
+* First open a browser and connect to the Neo4j client  (with this configuration, no credentials are required)
 
 ```
     http://neo4j_server_ip:7474/browser/
 ```  
 
 * Copy the loading file [example1.graphml](https://github.com/atenearesearchgroup/subjectiveKGs/examples/example1.graphml) of nodes and relations from the motivator example into $HOME_NEO4J/import
-* Run next statement of the copied graphml file in the neo4j client
+* Run next statement of the copied graphml file in the Neo4j client
 
 ```
     CALL apoc.import.graphml("example1.graphml", {readLabels: true})
@@ -91,14 +91,14 @@ To install the plugin with the SBooleans handling procedures and functions in Ne
 * Finally copy the loading file of nodes and relations from the motivator example into $HOME_NEO4J/import
 
 ## Loading SKG of NELL bastketbal players example
-* First open a browser and connect to the neo4j client  (with this configuration, no credentials are required)
+* First open a browser and connect to the Neo4j client  (with this configuration, no credentials are required)
 
 ``` 
     http://neo4j_server_ip:7474/browser/ 
 ```
 
 * Copy the loading file [example2.graphml](https://github.com/atenearesearchgroup/subjectiveKGs/examples/example2.graphml) of nodes and relations from the NELL basketbal players example into $HOME_NEO4J/import
-* Run next statement of the copied graphml file in the neo4j client
+* Run next statement of the copied graphml file in the Neo4j client
 
 ```
     CALL apoc.import.graphml("example2.graphml", {readLabels: true})
