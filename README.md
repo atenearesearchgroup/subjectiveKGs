@@ -10,7 +10,7 @@ The code is provided as a Maven project, which has been developed in Netbans IDE
 
 The following dependecies are required:
 
-* [Neo4j community edition version 4.2.2](https://neo4j.com/download-center/#community), a  graph  database  management  system  with CRUD methods that expose a graph data model. This version uses a java implementation with Java 11.
+* [Neo4j community edition version 4.2.2](https://neo4j.com/download-center/#community), a  graph database  management  system  with CRUD methods that expose a graph data model. This version uses a java implementation with Java 11.
 * [Apoc Core plugin](https://neo4j.com/labs/apoc/4.1/installation) The APOC library consists of many  procedures and functions to help with many different tasks in areas like data integration, graph algorithms or data conversion.
 
 In in order to facilitate the configuration of Neo4j I show you the essential configuration elements of ne4j configuration to be able to test all the experiments. The 
