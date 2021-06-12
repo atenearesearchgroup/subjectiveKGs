@@ -55,7 +55,7 @@ public class MultipleOperation {
         String result = "";
         for (String agent : agents){
             int index = agents.indexOf(agent);
-            result = result + "{project: " + String.valueOf(acc.get(index).projection()) + ", sboolean: (" + 
+            result = result + "{projection: " + String.valueOf(acc.get(index).projection()) + ", sboolean: (" + 
                                 String.valueOf(acc.get(index).belief()) + "," +
                                 String.valueOf(acc.get(index).disbelief()) + "," +
                                 String.valueOf(acc.get(index).uncertainty()) + "," +
@@ -155,7 +155,7 @@ public class MultipleOperation {
             luncertainties.add(new Double(temp.uncertainty()));
             
             
-            result.opinion = "{project: " + String.valueOf(projection) + ", sboolean: (" + 
+            result.opinion = "{projection: " + String.valueOf(projection) + ", sboolean: (" + 
                 String.valueOf(lbeliefs.get(lagents.size()-1)) + "," +
                 String.valueOf(ldisbeliefs.get(lagents.size()-1)) + "," +
                 String.valueOf(luncertainties.get(lagents.size()-1)) + "," +
@@ -184,7 +184,7 @@ public class MultipleOperation {
         SBoolean sResult = SBoolean.averageBeliefFusion(acc);
         
         SBooleanOpinionListRelation res = new SBooleanOpinionListRelation(relations, "");
-        res.opinion = "{project: " + String.valueOf(sResult.projection()) + ", sboolean: (" + 
+        res.opinion = "{projection: " + String.valueOf(sResult.projection()) + ", sboolean: (" + 
                         String.valueOf(sResult.belief()) + "," +
                         String.valueOf(sResult.disbelief()) + "," +
                         String.valueOf(sResult.uncertainty()) + "," +
