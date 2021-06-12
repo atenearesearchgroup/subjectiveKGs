@@ -1,6 +1,6 @@
 
 # subjectiveKGs
-This repository contains additional material for the paper entitled **Introducing Subjective Knowledge Graphs** introduces  an extension to Probabilistic Knowledge Graphs that considers the  individual  opinions  of separate users about the same facts, and allows reasoning about them. This paper is currently under revision.
+This repository contains additional material for the paper entitled **Introducing Subjective Knowledge Graphs** initiates  an extension to Probabilistic Knowledge Graphs that considers the  individual  opinions  of separate users about the same facts, and allows reasoning about them. This paper is currently under revision.
 
 The repository includes code and datasets for reproducibility purposes.
 
