@@ -131,3 +131,47 @@ To install the plugin with the SBooleans handling procedures and functions in Ne
 ```
     CALL apoc.import.graphml("example4.graphml", {readLabels: true})
 ```
+
+## PKG based on NELL repository
+In this section we intend to illustrate our approach with a real probabilistic knowledge graph basis. For this purpose we have relied on the construction of the knowledge graph from the category and relationship data of the NELL repository.
+
+###NELL Project Overview
+NELL [(Never-Ending Language Learner)](http://rtw.ml.cmu.edu/rtw/) is a knowledge base of structured information that mirrors the content of the Web. The main objective of the NELL project is to build a never-ending machine learning system that acquires the ability to extract structured information from unstructured web pages. The inputs to NELL include  an initial ontology defining hundreds of categories (e.g., person, sportsTeam, fruit, emotion) and relations (e.g., playsOnTeam(athlete,sportsTeam), playsInstrument(musician,instrument)) that NELL is expected to extract, and 10 to 15 seed examples of each category and relation.
+
+NELL explores information in addition to a collection of 500 million web pages through search engine APIs, to perform two ongoing tasks:
+
+* Extract new instances of categories and relations. In other words, find noun phrases that represent new examples of the input categories that are added to the growing knowledge base of structured beliefs.
+* Learning how to extract better data and insights on a daily basis using a variety of methods to extract beliefs from the web. These are retrained, using the growing knowledge base as a self-supervised collection of training examples. The result is a semi-supervised learning method that couples the training of hundreds of different extraction methods for a wide range of categories and relations
+
+
+### Loading data from NELL to Neo4j
+Data triples have been downloaded from the NELL resources and data section. Each line of this file contains one category or relation instance that NELL believes to be true. Nominally, each belief is an (Entity, Relation, Value) triple. The selected file columns are as follows:
+
+* Entity: The Entity part of the (Entity, Relation, Value) triple.
+* Relation: The Relation part of the (Entity, Relation, Value) triple. In the case of a category instance, this will be "generalizations". In the case of a relation instance, this will be the name of the relation.
+* Value: The Value part of the (Entity, Relation, Value) triple. In the case of a category instance, this will be the name of the category. In the case of a relation instance, this will be another concept (like Entity).
+* Probability: A confidence score for the belief. Note that NELL's scores are not actually probabilistic at this time.
+* Entity literalStrings: The set of actual textual strings that NELL has read that it believes can refer to the concept indicated in the Entity column.
+
+
+Using specific Neo4j commands, NELL nodes and relations have been loaded, obtaining a set of 2,121,179 nodes and 644,899 relations that have been labeled and typed by means of data refinement operations in Neo4j.
+
+This te comand to load the entity nodes and their clases.
+
+```
+LOAD CSV FROM 'file:///nell/ent.csv' AS row
+FIELDTERMINATOR '|'
+MERGE (e: Entity {entityId: row[0]})
+WITH e, row
+CALL apoc.create.setLabels(e,
+apoc.coll.toSet(split(row[2],'$') 
++ split(row[9],'$') + split(row[10],'$') + 
+apoc.node.labels(e))) yield node
+WITH node as n, row
+CALL apoc.create.setProperties(n, ['bestLiteralString',
+'entityId', 'probability'], [row[7], row[0],
+toFloat(row[4])]) yield node
+UNWIND split(row[5], '$') AS literalString
+MERGE (l:LiteralString {name: literalString})
+MERGE (node)-[r:IsNamedLiteral]->(l)
+```
