@@ -160,7 +160,7 @@ The files containing the simplified Nell triples for both nodes and relations ca
 
 Due to space limitations in the repository, the file ent.csv had to be split into [ent_01.csv](https://github.com/atenearesearchgroup/subjectiveKGs/examples/ent_01.csv.tar.gz) and [ent_02.csv](https://github.com/atenearesearchgroup/subjectiveKGs/examples/ent_02.csv.tar.gz).
 
-This te command to load the entity nodes and their clases.
+This statement loads the entity nodes and their classes.
 
 ```
 :auto USING PERIODIC COMMIT 100 LOAD CSV FROM 'file:///ent_xx.csv' AS row FIELDTERMINATOR '|'
@@ -178,7 +178,7 @@ MERGE (l:LiteralString {name: literalString})
 MERGE (node)-[r:IsNamedLiteral]->(l)
 ```
 
-This te command to load the relations between nodes.
+TThis statement loads the relations between nodes.
 
 ```
 :auto USING PERIODIC COMMIT 500 LOAD CSV FROM 'file:///ent.csv' AS row FIELDTERMINATOR '|'
