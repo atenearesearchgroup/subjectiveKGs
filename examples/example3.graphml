@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">
-<key id="entityId" for="node" attr.name="entityId"/>
-<key id="bestLiteralName" for="node" attr.name="bestLiteralName"/>
-<key id="labels" for="node" attr.name="labels"/>
-<key id="probability" for="edge" attr.name="probability"/>
-<key id="relationId" for="edge" attr.name="relationId"/>
-<key id="label" for="edge" attr.name="label"/>
-<key id="uncertainty" for="edge" attr.name="uncertainty"/>
-<key id="belief" for="edge" attr.name="belief"/>
-<key id="p_opinion" for="edge" attr.name="p_opinion"/>
-<key id="disbelief" for="edge" attr.name="disbelief"/>
+<key id="entityId" for="node" attr.name="entityId" attr.type="string"/>
+<key id="bestLiteralName" for="node" attr.name="bestLiteralName" attr.type="string"/>
+<key id="labels" for="node" attr.name="labels" attr.type="string"/>
+<key id="probability" for="edge" attr.name="probability" attr.type="double"/>
+<key id="relationId" for="edge" attr.name="relationId" attr.type="string"/>
+<key id="label" for="edge" attr.name="label" attr.type="string"/>
+<key id="uncertainty" for="edge" attr.name="uncertainty" attr.type="string" attr.list="double"/>
+<key id="belief" for="edge" attr.name="belief" attr.type="string" attr.list="double"/>
+<key id="p_opinion" for="edge" attr.name="p_opinion" attr.type="string" attr.list="string"/>
+<key id="disbelief" for="edge" attr.name="disbelief" attr.type="string" attr.list="double"/>
 <graph id="G" edgedefault="directed">
 <node id="n181599" labels=":Entity:magic"><data key="labels">:Entity:magic</data><data key="entityId">concept:sportsteam:magic</data><data key="bestLiteralName">magic</data></node>
 <node id="n181637" labels=":Entity:san_diego"><data key="labels">:Entity:san_diego</data><data key="bestLiteralName">San Diego</data><data key="entityId">concept:city:san_diego</data></node>

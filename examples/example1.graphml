@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">
-<key id="name" for="node" attr.name="name"/>
-<key id="labels" for="node" attr.name="labels"/>
-<key id="probability" for="edge" attr.name="probability"/>
-<key id="label" for="edge" attr.name="label"/>
-<key id="uncertainty" for="edge" attr.name="uncertainty"/>
-<key id="belief" for="edge" attr.name="belief"/>
-<key id="p_opinion" for="edge" attr.name="p_opinion"/>
-<key id="disbelief" for="edge" attr.name="disbelief"/>
+<key id="name" for="node" attr.name="name" attr.type="string"/>
+<key id="labels" for="node" attr.name="labels" attr.type="string"/>
+<key id="probability" for="edge" attr.name="probability" attr.type="double"/>
+<key id="label" for="edge" attr.name="label" attr.type="string"/>
+<key id="uncertainty" for="edge" attr.name="uncertainty" attr.type="string" attr.list="double"/>
+<key id="belief" for="edge" attr.name="belief" attr.type="string" attr.list="double"/>
+<key id="p_opinion" for="edge" attr.name="p_opinion" attr.type="string" attr.list="string"/>
+<key id="disbelief" for="edge" attr.name="disbelief" attr.type="string" attr.list="double"/>
 <graph id="G" edgedefault="directed">
 <node id="n9" labels=":L1:Law:Ruler"><data key="labels">:L1:Law:Ruler</data><data key="name">L1</data></node>
 <node id="n10" labels=":L2:Law:Ruler"><data key="labels">:L2:Law:Ruler</data><data key="name">L2</data></node>
