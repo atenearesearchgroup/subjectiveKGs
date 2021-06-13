@@ -135,7 +135,7 @@ To install the plugin with the SBooleans handling procedures and functions in Ne
 ## PKG based on NELL repository
 In this section we intend to illustrate our approach with a real probabilistic knowledge graph basis. For this purpose we have relied on the construction of the knowledge graph from the category and relationship data of the NELL repository.
 
-###NELL Project Overview
+### NELL Project Overview
 NELL [(Never-Ending Language Learner)](http://rtw.ml.cmu.edu/rtw/) is a knowledge base of structured information that mirrors the content of the Web. The main objective of the NELL project is to build a never-ending machine learning system that acquires the ability to extract structured information from unstructured web pages. The inputs to NELL include  an initial ontology defining hundreds of categories (e.g., person, sportsTeam, fruit, emotion) and relations (e.g., playsOnTeam(athlete,sportsTeam), playsInstrument(musician,instrument)) that NELL is expected to extract, and 10 to 15 seed examples of each category and relation.
 
 NELL explores information in addition to a collection of 500 million web pages through search engine APIs, to perform two ongoing tasks:
@@ -156,22 +156,36 @@ Data triples have been downloaded from the NELL resources and data section. Each
 
 Using specific Neo4j commands, NELL nodes and relations have been loaded, obtaining a set of 2,121,179 nodes and 644,899 relations that have been labeled and typed by means of data refinement operations in Neo4j.
 
+The files containing the simplified Nell triples for both nodes and relations can be downloaded from the repository and are named [ent.csv](https://github.com/atenearesearchgroup/subjectiveKGs/examples/ent.csv.tar.gz) and [rel.csv](https://github.com/atenearesearchgroup/subjectiveKGs/examples/rel.csv.tar.gz). They should be located in $HOME_NEO4J/import.
+
 This te comand to load the entity nodes and their clases.
 
 ```
-LOAD CSV FROM 'file:///nell/ent.csv' AS row
-FIELDTERMINATOR '|'
+:auto USING PERIODIC COMMIT 100 LOAD CSV FROM 'file:///ent.awk.csv' AS row FIELDTERMINATOR '|'
 MERGE (e: Entity {entityId: row[0]})
 WITH e, row
-CALL apoc.create.setLabels(e,
-apoc.coll.toSet(split(row[2],'$') 
-+ split(row[9],'$') + split(row[10],'$') + 
-apoc.node.labels(e))) yield node
-WITH node as n, row
-CALL apoc.create.setProperties(n, ['bestLiteralString',
-'entityId', 'probability'], [row[7], row[0],
-toFloat(row[4])]) yield node
-UNWIND split(row[5], '$') AS literalString
+CALL apoc.create.setLabels(e, apoc.coll.toSet(split(row[0],':') + apoc.node.labels(e))) yield node
+MERGE (g: Generalization {entityId: row[2]})
+MERGE (g)-[r:IsGeneralization {probability: coalesce(toFloat(row[4]),toFloat(0))}]->(node)
+WITH node as n, row, g
+CALL apoc.create.setLabels(g, apoc.coll.toSet(split(row[2],':') + apoc.node.labels(g))) yield node
+WITH n, row, node as g
+CALL apoc.create.setProperties(n, ['bestLiteralString', 'entityId'], [row[5], row[0]]) yield node
+UNWIND split(row[4], '$') AS literalString
 MERGE (l:LiteralString {name: literalString})
 MERGE (node)-[r:IsNamedLiteral]->(l)
 ```
+
+```
+:auto USING PERIODIC COMMIT 1000 LOAD CSV FROM 'file:///hotel.ent.awk.csv' AS row FIELDTERMINATOR '|'
+WITH row
+CALL apoc.merge.node(['Entity'] + apoc.coll.toSet(split(row[0],':')) , {entityId: row[0], bestLiteralString: row[5]}) yield node
+MERGE (g: Category {entityId: row[2]})
+MERGE (g)-[r:IsGeneralization {probability: coalesce(toFloat(row[4]),toFloat(0))}]->(node)
+WITH node, row
+UNWIND split(row[4], '$') AS literalString
+MERGE (l:LiteralString {name: literalString})
+MERGE (node)-[r:IsNamedLiteral]->(l)
+```
+
+
