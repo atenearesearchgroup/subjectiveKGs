@@ -156,14 +156,14 @@ Data triples have been downloaded from the NELL resources and data section. Each
 
 Using specific Neo4j commands, NELL nodes and relations have been loaded, obtaining a set of 2,121,179 nodes and 644,899 relations that have been labeled and typed by means of data refinement operations in Neo4j.
 
-The files containing the simplified Nell triples for both nodes and relations can be downloaded from the repository and are named [ent.csv](https://github.com/atenearesearchgroup/subjectiveKGs/examples/ent.csv.tar.gz) and [rel.csv](https://github.com/atenearesearchgroup/subjectiveKGs/examples/rel.csv.tar.gz). They should be located in $HOME_NEO4J/import.
+The files containing the simplified Nell triples for both nodes and relations can be downloaded from the repository and are named ent.csv and [rel.csv](https://github.com/atenearesearchgroup/subjectiveKGs/examples/rel.csv.tar.gz). They should be located in $HOME_NEO4J/import.
 
-Due to space limitations in the repository, the file ent.csv had to be split into ent_01.csv and ent_02.csv.
+Due to space limitations in the repository, the file ent.csv had to be split into [ent_01.csv](https://github.com/atenearesearchgroup/subjectiveKGs/examples/ent_01.csv.tar.gz) and [ent_02.csv](https://github.com/atenearesearchgroup/subjectiveKGs/examples/ent_02.csv.tar.gz).
 
 This te command to load the entity nodes and their clases.
 
 ```
-:auto USING PERIODIC COMMIT 100 LOAD CSV FROM 'file:///ent.awk.csv' AS row FIELDTERMINATOR '|'
+:auto USING PERIODIC COMMIT 100 LOAD CSV FROM 'file:///ent_xx.csv' AS row FIELDTERMINATOR '|'
 MERGE (e: Entity {entityId: row[0]})
 WITH e, row
 CALL apoc.create.setLabels(e, apoc.coll.toSet(split(row[0],':') + apoc.node.labels(e))) yield node
@@ -181,13 +181,17 @@ MERGE (node)-[r:IsNamedLiteral]->(l)
 This te command to load the relations between nodes.
 
 ```
-:auto USING PERIODIC COMMIT 1000 LOAD CSV FROM 'file:///hotel.ent.awk.csv' AS row FIELDTERMINATOR '|'
-WITH row
-CALL apoc.merge.node(['Entity'] + apoc.coll.toSet(split(row[0],':')) , {entityId: row[0], bestLiteralString: row[5]}) yield node
-MERGE (g: Category {entityId: row[2]})
-MERGE (g)-[r:IsGeneralization {probability: coalesce(toFloat(row[4]),toFloat(0))}]->(node)
-WITH node, row
-UNWIND split(row[4], '$') AS literalString
+:auto USING PERIODIC COMMIT 500 LOAD CSV FROM 'file:///ent.csv' AS row FIELDTERMINATOR '|'
+MERGE (e: Entity {entityId: row[0]})
+WITH e, row
+CALL apoc.create.setLabels(e, apoc.coll.toSet(split(row[0],':') + split(row[2],':') + split(row[9],':') + split(row[10],':') + apoc.node.labels(e))) yield node
+MERGE (g: Generalization {entityId: row[2]})
+MERGE (g)-[r:IsGeneralization {probability: toFloat(row[4])}]->(node)
+WITH node as n, row, g
+CALL apoc.create.setLabels(g, apoc.coll.toSet(split(row[2],':') + apoc.node.labels(g))) yield node
+WITH n, row, node as g
+CALL apoc.create.setProperties(n, ['bestLiteralString', 'entityId'], [row[7], row[0]]) yield node
+UNWIND split(row[5], '$') AS literalString
 MERGE (l:LiteralString {name: literalString})
 MERGE (node)-[r:IsNamedLiteral]->(l)
 ```
