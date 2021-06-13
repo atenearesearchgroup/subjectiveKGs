@@ -103,3 +103,31 @@ To install the plugin with the SBooleans handling procedures and functions in Ne
 ```
     CALL apoc.import.graphml("example2.graphml", {readLabels: true})
 ```
+
+## Loading SKG of NELL hotels to follow the league example
+* First open a browser and connect to the Neo4j client  (with this configuration, no credentials are required)
+
+``` 
+    http://neo4j_server_ip:7474/browser/ 
+```
+
+* Copy the loading file [example4.graphml](https://github.com/atenearesearchgroup/subjectiveKGs/examples/example4.graphml) of nodes and relations from the NELL basketbal players example into $HOME_NEO4J/import
+* Run next statement of the copied graphml file in the Neo4j client
+
+```
+    CALL apoc.import.graphml("example4.graphml", {readLabels: true})
+```
+
+## Loading SKG of NELL Cities  and  their  relations example
+* First open a browser and connect to the Neo4j client  (with this configuration, no credentials are required)
+
+``` 
+    http://neo4j_server_ip:7474/browser/ 
+```
+
+* Copy the loading file [example4.graphml](https://github.com/atenearesearchgroup/subjectiveKGs/examples/example4.graphml) of nodes and relations from the NELL basketbal players example into $HOME_NEO4J/import
+* Run next statement of the copied graphml file in the Neo4j client
+
+```
+    CALL apoc.import.graphml("example4.graphml", {readLabels: true})
+```
