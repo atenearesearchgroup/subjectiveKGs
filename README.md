@@ -158,7 +158,7 @@ Using specific Neo4j commands, NELL nodes and relations have been loaded, obtain
 
 The files containing the simplified Nell triples for both nodes and relations can be downloaded from the repository and are named [ent.csv](https://github.com/atenearesearchgroup/subjectiveKGs/examples/ent.csv.tar.gz) and [rel.csv](https://github.com/atenearesearchgroup/subjectiveKGs/examples/rel.csv.tar.gz). They should be located in $HOME_NEO4J/import.
 
-This te comand to load the entity nodes and their clases.
+This te command to load the entity nodes and their clases.
 
 ```
 :auto USING PERIODIC COMMIT 100 LOAD CSV FROM 'file:///ent.awk.csv' AS row FIELDTERMINATOR '|'
@@ -175,6 +175,8 @@ UNWIND split(row[4], '$') AS literalString
 MERGE (l:LiteralString {name: literalString})
 MERGE (node)-[r:IsNamedLiteral]->(l)
 ```
+
+This te command to load the relations between nodes.
 
 ```
 :auto USING PERIODIC COMMIT 1000 LOAD CSV FROM 'file:///hotel.ent.awk.csv' AS row FIELDTERMINATOR '|'
