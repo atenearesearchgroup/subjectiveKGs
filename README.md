@@ -158,6 +158,8 @@ Using specific Neo4j commands, NELL nodes and relations have been loaded, obtain
 
 The files containing the simplified Nell triples for both nodes and relations can be downloaded from the repository and are named [ent.csv](https://github.com/atenearesearchgroup/subjectiveKGs/examples/ent.csv.tar.gz) and [rel.csv](https://github.com/atenearesearchgroup/subjectiveKGs/examples/rel.csv.tar.gz). They should be located in $HOME_NEO4J/import.
 
+Due to space limitations in the repository, the file ent.csv had to be split into ent_01.csv and ent_02.csv.
+
 This te command to load the entity nodes and their clases.
 
 ```
