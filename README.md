@@ -178,7 +178,7 @@ MERGE (l:LiteralString {name: literalString})
 MERGE (node)-[r:IsNamedLiteral]->(l)
 ```
 
-TThis statement loads the relations between nodes.
+This statement loads the relations between nodes.
 
 ```
 :auto USING PERIODIC COMMIT 500 LOAD CSV FROM 'file:///ent.csv' AS row FIELDTERMINATOR '|'
